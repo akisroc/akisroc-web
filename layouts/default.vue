@@ -1,7 +1,11 @@
 <template>
   <div>
     <navigation></navigation>
-    <nuxt/>
+    <section class="section">
+      <div class="container">
+        <nuxt/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -16,6 +20,8 @@
 </script>
 
 <style lang="scss">
-  @import "~bulma";
+  @import "../node_modules/bulma/sass/utilities/initial-variables";
+  $body-background-color: rgba($blue, 0.2);
+  $card-background-color: rgba($yellow, 0.05);
+  @import "../node_modules/bulma/bulma";
 </style>
-
