@@ -15,7 +15,9 @@
     <div id="responsive-navbar" class="navbar-menu">
       <div class="navbar-start">
         <nuxt-link to="/" class="navbar-item">Page d'accueil</nuxt-link>
-        <a href="#" class="navbar-item">Messages privés</a>
+        <a href="#" class="navbar-item">
+          <span class="badge has-badge-rounded has-badge-light has-badge-small" data-badge="1">Messages privés</span>
+        </a>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Gestion</a>
           <div class="navbar-dropdown">

@@ -24,4 +24,5 @@
   $body-background-color: rgba($blue, 0.2);
   $card-background-color: rgba($yellow, 0.05);
   @import "../node_modules/bulma/bulma";
+  @import "../node_modules/bulma-badge/src/sass/index";
 </style>
