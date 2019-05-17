@@ -9,7 +9,7 @@
           <div class="card column is-three-quarters">
             <header class="card-header">
               <h3 class="card-header-title">
-                <a href="#">Place Frozell</a>
+                <nuxt-link to="/boards/place-frozell">Place Frozell</nuxt-link>
               </h3>
             </header>
             <p class="card-content is-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, molestiae?</p>
