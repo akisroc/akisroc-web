@@ -48,5 +48,11 @@ export default {
 </script>
 
 <style lang="scss">
+  .board {
+    &:hover {
+      transform: scale3d(0.994, 0.994, 1);
+      font-weight: bold;
+    }
+  }
 </style>
 
