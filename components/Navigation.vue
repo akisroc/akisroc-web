@@ -30,9 +30,9 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a href="#" class="button is-light">
+            <nuxt-link to="/users/keor" class="button is-light">
               <strong>Keor</strong>
-            </a>
+            </nuxt-link>
             <a href="#" class="button is-dark">
               Se déconnecter
             </a>
