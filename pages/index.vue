@@ -12,32 +12,19 @@
             p.card-content.is-small
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
               | molestiae?
-          div.card.column
-            div.card-content.columns
-              figure.column.is-one-fifth.image.is-32x32
-                img.is-rounded(src="ecbel.jpg", alt="Ec'bêl")
-                figcaption
-                  a(href="#") Ec'bêl
-              div.column
-                p.content.is-small
-                  | « Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  | Aspernatur, illum
-                  |
-                  a(href="#") [...]
-                  |  »
-                p.content.is-small
-                  | Le 14 mai 2019,
-                  | dans
-                  |
-                  em
-                    a(href="#") La Peste de Nar'zashj
+          post-excerpt-card.column(author-name="Ec'bêl", author-img="ecbel.jpg",
+                                   author-href="/users/ecbel", post-excerpt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem sit amet, consectetur adipisicing"
+                                   post-href="/", post-date="22 mai 2019 à 17:15",
+                                   thread-title="La Peste de Nar'zashj", thread-href="/")
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import PostExcerptCard from "../components/cards/PostExcerptCard";
 
 export default {
   components: {
+    PostExcerptCard,
     AppLogo
   }
 }
