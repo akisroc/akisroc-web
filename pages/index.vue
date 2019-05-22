@@ -33,8 +33,7 @@ export default {
 <style lang="scss">
   .board {
     &:hover {
-      transform: scale3d(0.994, 0.994, 1);
-      font-weight: bold;
+      box-shadow: inset 0 0 10px white;
     }
   }
 </style>
