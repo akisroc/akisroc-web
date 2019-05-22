@@ -1,12 +1,9 @@
-<template>
-  <div>
-    <navigation></navigation>
-    <section class="section">
-      <div class="container">
-        <nuxt/>
-      </div>
-    </section>
-  </div>
+<template lang="pug">
+  div
+    navigation
+    section.section
+      div.container
+        nuxt/
 </template>
 
 <script>

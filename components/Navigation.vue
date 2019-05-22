@@ -1,45 +1,27 @@
-<template>
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <nuxt-link to="/" class="navbar-item">/\</nuxt-link>
-    </div>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu"
-       aria-expanded="false" data-target="responsive-navbar"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-
-    <div id="responsive-navbar" class="navbar-menu">
-      <div class="navbar-start">
-        <nuxt-link to="/" class="navbar-item">Page d'accueil</nuxt-link>
-        <a href="#" class="navbar-item">
-          <span class="badge has-badge-rounded has-badge-light has-badge-small" data-badge="1">Messages privés</span>
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Gestion</a>
-          <div class="navbar-dropdown">
-            <a href="#" class="navbar-item">Troupes</a>
-            <a href="#" class="navbar-item">Ressources</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <nuxt-link to="/users/keor" class="button is-light">
-              <strong>Keor</strong>
-            </nuxt-link>
-            <a href="#" class="button is-dark">
-              Se déconnecter
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </nav>
+<template lang="pug">
+  nav.navbar.is-dark(role="navigation", aria-label="main navigation")
+    div.navbar-brand
+      nuxt-link.navbar-item(to="/") /\
+    a.burger.navbar-burger(role="button", aria-label="menu", aria-expanded="false",
+                           data-target="responsive-navbar")
+      span(aria-hidden="true")
+      span(aria-hidden="true")
+      span(aria-hidden="true")
+    div#responsive-navbar.navbar-menu
+      div.navbar-start
+        nuxt-link.navbar-item(to="/") Page d'accueil
+        a.navbar-item(href="#")
+          span.badge.has-badge-rounded.has-badge-light.has-badge-small(data-badge="1")
+            | Messages privés
+        div.navbar-item.has-dropdown.is-hoverable
+          a.navbar-link Gestion
+          div.navbar-dropdown
+            a.navbar-item(href="#") Troupes
+            a.navbar-item(href="#") Ressources
+      div.navbar-end
+        div.navbar-item
+          div.buttons
+            nuxt-link.button.is-light(to="/users/keor")
+              strong Keor
+            a.button.is-dark(href="#") Se déconnecter
 </template>
