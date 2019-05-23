@@ -1,9 +1,8 @@
 <template lang="pug">
   div
     navigation
-    section.section
-      div.container
-        nuxt/
+    main.container
+      nuxt/
 </template>
 
 <script>
@@ -23,4 +22,8 @@
   @import "../node_modules/bulma/bulma";
   @import "../node_modules/bulma-badge/src/sass/index";
   @import "~bulma-tooltip";
+
+  main {
+    padding-top: 5vh;
+  }
 </style>
