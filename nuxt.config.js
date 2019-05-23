@@ -1,5 +1,11 @@
 module.exports = {
   /*
+  ** Modules
+  */
+  modules: [
+    '@nuxtjs/pwa'
+  ],
+  /*
   ** Headers of the page
   */
   head: {

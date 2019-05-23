@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
     "bulma": "^0.7.4",
     "bulma-badge": "^3.0.0",
     "bulma-tooltip": "^2.0.2",
