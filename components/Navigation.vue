@@ -1,13 +1,12 @@
 <template lang="pug">
   nav.navbar.is-dark(role="navigation", aria-label="main navigation")
-    div.navbar-brand
-      nuxt-link.navbar-item(to="/") /\
-    a.burger.navbar-burger(role="button", aria-label="menu", aria-expanded="false",
+    a.burger.navbar-burger(@click="toggle", role="button",
+                           aria-label="menu", aria-expanded="false",
                            data-target="responsive-navbar")
       span(aria-hidden="true")
       span(aria-hidden="true")
       span(aria-hidden="true")
-    div#responsive-navbar.navbar-menu
+    div#responsive-navbar.navbar-menu(@click="toggle")
       div.navbar-start
         nuxt-link.navbar-item(to="/") Page d'accueil
         a.navbar-item(href="#")
@@ -25,3 +24,28 @@
               strong Keor
             a.button.is-dark(href="#") Se déconnecter
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        $burgers: [],
+        $burgersTarget: null
+      }
+    },
+    mounted () {
+      this.$burgers = Array.prototype.slice.call(
+        document.querySelectorAll('.navbar-burger'), 0
+      )
+      this.$burgersTarget = document.getElementById('responsive-navbar')
+    },
+    methods: {
+      toggle () {
+        this.$burgers.forEach(el => {
+          el.classList.toggle('is-active')
+        })
+        this.$burgersTarget.classList.toggle('is-active')
+      }
+    },
+  }
+</script>
