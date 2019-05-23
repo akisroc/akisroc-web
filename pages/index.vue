@@ -2,7 +2,7 @@
   div
     nav.category.card(v-for="i in 2", :key="i")
       header.card-header
-        h2.card-header-title Akisroc
+        h2.card-header-title {{ i === 1 ? 'RP' : 'HRP' }}
       div.card-content
         div.board.columns(v-for="i in 4", :key="i")
           div.card.column.is-three-quarters
@@ -19,13 +19,11 @@
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-import PostExcerptCard from "../components/cards/PostExcerptCard";
+import PostExcerptCard from '../components/cards/PostExcerptCard'
 
 export default {
   components: {
-    PostExcerptCard,
-    AppLogo
+    PostExcerptCard
   }
 }
 </script>
