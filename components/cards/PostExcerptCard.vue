@@ -2,13 +2,13 @@
   nuxt-link.card.post-excerpt-card.tooltip.is-tooltip-multiline(:to="postHref",
                                               :data-tooltip="'« ' + postExcerpt + ' [...] »'")
     div.card-content
-      figure.columns.image
+      figure.columns.image.is-hidden-mobile
         img.column.is-rounded(:src="authorImg", :alt="authorName")
         figcaption.column
           nuxt-link(:to="authorHref") {{ authorName }}
       div
         p.content.is-small
-          | Le {{ postDate }} <br/>
+          | Dernier post le {{ postDate }} <br/>
           em
             nuxt-link(to="/") {{ threadTitle }}
 </template>
