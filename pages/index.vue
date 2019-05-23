@@ -5,10 +5,9 @@
         h2.card-header-title {{ i === 1 ? 'RP' : 'HRP' }}
       div.card-content
         div.board.columns(v-for="i in 4", :key="i")
-          div.card.column.is-three-quarters
+          nuxt-link.card.column.is-three-quarters(to="/boards/place-frozell")
             header.card-header
-              h3.card-header-title
-                nuxt-link(to="/boards/place-frozell") Place Frozell
+              h3.card-header-title Place Frozell
             p.card-content.is-small
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
               | molestiae?
@@ -29,9 +28,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .board {
-    &:hover {
+  .category {
+    .card:hover {
       box-shadow: inset 0 0 10px white;
+    }
+    .board:not(:last-child) {
+      margin-bottom: 5vh;
     }
   }
 </style>
