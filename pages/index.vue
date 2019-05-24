@@ -1,17 +1,11 @@
 <template lang="pug">
   div
-    nav.category.card(v-for="i in 2", :key="i")
+    nav.board.card(v-for="i in 2", :key="i")
       header.card-header
         h2.card-header-title {{ i === 1 ? 'RP' : 'HRP' }}
       div.card-content
-        div.board.columns(v-for="i in 4", :key="i")
-          nuxt-link.card.column.is-three-quarters(
-            :to="localePath({name: 'categories-slug', params: {slug: 'place-frozell'}})")
-            header.card-header
-              h3.card-header-title Place Frozell
-            p.card-content.is-small
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam,
-              | molestiae?
+        div.category.columns(v-for="category in (i === 1 ? rpCategories : hrpCategories)")
+          category-card.column.is-three-quarters(:category="category")
           post-excerpt-card.column(author-name="Ec'bêl", author-img="ecbel.jpg",
                                    author-href="/users/ecbel", post-excerpt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem sit amet, consectetur adipisicing"
                                    post-href="/", post-date="22 mai 2019 à 17:15",
@@ -19,17 +13,30 @@
 </template>
 
 <script>
+import CategoryCard from '../components/cards/CategoryCard'
 import PostExcerptCard from '../components/cards/PostExcerptCard'
 
 export default {
   components: {
-    PostExcerptCard
+    CategoryCard, PostExcerptCard
+  },
+  data () {
+    return {
+      rpCategories: [],
+      hrpCategories: []
+    }
+  },
+  beforeMount () {
+    this.$axios.get('/categories').then(res => {
+      this.rpCategories = res.data.filter(c => c['role_play'] === true)
+      this.hrpCategories = res.data.filter(c => c['role_play'] === false)
+    })
   }
 }
 </script>
 
 <style lang="scss">
-  .category {
+  .board {
     .card:hover {
       box-shadow: inset 0 0 10px white;
     }
