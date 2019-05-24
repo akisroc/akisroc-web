@@ -3,8 +3,40 @@ module.exports = {
   ** Modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast'
   ],
+
+  axios: {
+    baseURL: 'http://localhost:8000'
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/login', method: 'POST', propertyName: 'token' },
+          logout: { url: '/logout', method: 'POST' },
+          user: { url: '/me', method: 'GET', propertyName: false }
+        }
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/'
+    }
+  },
+
+  toast: {
+    position: 'bottom-right',
+    duration: 500,
+    keepOnHover: true
+  },
+
   /*
   ** Headers of the page
   */

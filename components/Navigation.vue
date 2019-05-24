@@ -20,9 +20,11 @@
       div.navbar-end
         div.navbar-item
           div.buttons
-            nuxt-link.button.is-light(to="/users/keor")
-              strong Keor
-            a.button.is-dark(href="#") Se déconnecter
+            nuxt-link.button.is-light(v-if="$auth.loggedIn",
+                                      :to="'/users/' + $auth.user.slug")
+              strong {{ $auth.user.username }}
+            nuxt-link.button.is-dark(v-if="!$auth.loggedIn", to="/login") Se connecter
+            button.button.is-dark(v-else, to="/logout", @click.prevent="logout") Se déconnecter
 </template>
 
 <script>
@@ -45,6 +47,18 @@
           el.classList.toggle('is-active')
         })
         this.$burgersTarget.classList.toggle('is-active')
+      },
+      async logout () {
+        try {
+          await this.$auth.logout().catch(e => {
+            this.$toast.error('Déconnexion échouée.')
+          })
+          if (!this.$auth.loggedIn) {
+            this.$toast.success('Déconnexion réussie.')
+          }
+        } catch (e) {
+          this.$toast.error('Déconnexion échouée.')
+        }
       }
     },
   }
