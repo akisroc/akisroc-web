@@ -6,7 +6,22 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    ['nuxt-i18n', {
+      locales: [{code: 'fr', iso: 'fr-FR'}, {code: 'en', iso: 'en-EN'}],
+      defaultLocale: 'fr',
+      vueI18n: {
+        fallbackLocale: 'fr',
+        messages: {
+          fr: {
+            homepage: 'Page d\'accueil',
+          },
+          en: {
+            homepage: 'Homepage'
+          }
+        },
+      }
+    }]
   ],
 
   axios: {

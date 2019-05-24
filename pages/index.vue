@@ -5,7 +5,8 @@
         h2.card-header-title {{ i === 1 ? 'RP' : 'HRP' }}
       div.card-content
         div.board.columns(v-for="i in 4", :key="i")
-          nuxt-link.card.column.is-three-quarters(to="/boards/place-frozell")
+          nuxt-link.card.column.is-three-quarters(
+            :to="localePath({name: 'categories-slug', params: {slug: 'place-frozell'}})")
             header.card-header
               h3.card-header-title Place Frozell
             p.card-content.is-small

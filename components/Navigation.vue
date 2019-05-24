@@ -8,7 +8,7 @@
       span(aria-hidden="true")
     div#responsive-navbar.navbar-menu(@click="toggle")
       div.navbar-start
-        nuxt-link.navbar-item(to="/") Page d'accueil
+        nuxt-link.navbar-item(to="/") {{ $t('homepage') }}
         a.navbar-item(href="#")
           span.badge.has-badge-rounded.has-badge-light.has-badge-small(data-badge="1")
             | Messages privés
@@ -23,7 +23,9 @@
             nuxt-link.button.is-light(v-if="$auth.loggedIn",
                                       :to="'/users/' + $auth.user.slug")
               strong {{ $auth.user.username }}
-            nuxt-link.button.is-dark(v-if="!$auth.loggedIn", to="/login") Se connecter
+            nuxt-link.button.is-dark(v-if="!$auth.loggedIn",
+                                     :to="localePath({name: 'login'})")
+              | Se connecter
             button.button.is-dark(v-else, to="/logout", @click.prevent="logout") Se déconnecter
 </template>
 
