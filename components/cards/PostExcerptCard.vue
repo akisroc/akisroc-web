@@ -3,7 +3,7 @@
                                               :data-tooltip="'« ' + postExcerpt + ' [...] »'")
     div.card-content
       figure.columns.image.is-hidden-mobile
-        img.column.is-rounded(:src="authorImg", :alt="authorName")
+        avatar.column.is-rounded(:src="authorImg", :alt="authorName")
         figcaption.column
           nuxt-link(:to="authorHref") {{ authorName }}
       div
@@ -14,7 +14,12 @@
 </template>
 
 <script>
+  import Avatar from '../Avatar'
+
   export default {
+    components: {
+      Avatar
+    },
     props: {
       authorName: String,
       authorImg: String,
