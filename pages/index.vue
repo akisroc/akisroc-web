@@ -4,7 +4,7 @@
       header.card-header
         h2.card-header-title {{ i === 1 ? 'RP' : 'HRP' }}
       div.card-content
-        div.category.columns(v-for="category in (i === 1 ? rpCategories : hrpCategories)")
+        div.category.columns(v-for="category in (i === 1 ? stories : categories)")
           category-card.column.is-three-quarters(:category="category")
           post-excerpt-card.column(author-name="Ec'bêl", author-img="ecbel.jpg",
                                    author-href="/users/ecbel", post-excerpt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem sit amet, consectetur adipisicing"
@@ -22,14 +22,16 @@ export default {
   },
   data () {
     return {
-      rpCategories: [],
-      hrpCategories: []
+      stories: [],
+      categories: []
     }
   },
   beforeMount () {
     this.$axios.get('/categories').then(res => {
-      this.rpCategories = res.data.filter(c => c['role_play'] === true)
-      this.hrpCategories = res.data.filter(c => c['role_play'] === false)
+      this.categories = res.data
+    })
+    this.$axios.get('/places').then(res => {
+      this.stories = res.data
     })
   }
 }
