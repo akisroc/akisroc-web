@@ -6,19 +6,19 @@
       div.card-content
         div.category.columns(v-for="category in (i === 1 ? stories : categories)")
           category-card.column.is-three-quarters(:category="category")
-          post-excerpt-card.column(author-name="Ec'bêl", author-img="ecbel.jpg",
-                                   author-href="/users/ecbel", post-excerpt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem sit amet, consectetur adipisicing"
-                                   post-href="/", post-date="22 mai 2019 à 17:15",
-                                   thread-title="La Peste de Nar'zashj", thread-href="/")
+          last-post-card.column(:category="category")
 </template>
 
 <script>
 import CategoryCard from '../components/cards/CategoryCard'
 import PostExcerptCard from '../components/cards/PostExcerptCard'
+import LastPostCard from '../components/cards/LastPostCard'
 
 export default {
   components: {
-    CategoryCard, PostExcerptCard
+    CategoryCard,
+    PostExcerptCard,
+    LastPostCard
   },
   data () {
     return {
